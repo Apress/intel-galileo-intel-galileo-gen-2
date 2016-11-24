@@ -1,0 +1,16 @@
+ttyACM0
+115200
+lock
+crtscts
+passive
+novj
+defaultroute
+noipdefault
+usepeerdns
+noauth
+hide-password
+persist
+holdoff 10
+maxfail 5
+debug
+connect '/usr/sbin/chat -f /etc/ppp/isp_chat'

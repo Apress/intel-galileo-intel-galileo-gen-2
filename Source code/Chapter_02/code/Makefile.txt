@@ -1,0 +1,14 @@
+SHELL = /bin/bash
+TARGET_NAME = i586-poky-linux-uclibc
+DIST = clanton-tiny
+CC = $(TARGET_NAME)-gcc  -m32 -march=i586 --sysroot=/opt/$(DIST)/1.4.2/sysroots/$(TARGET_NAME)
+CFLAGS = -O2 -pipe -g -feliminate-unused-debug-types
+OUTPUT_FILE = HelloWorld
+
+all: target
+
+target: $(patsubst %.c,%.o,$(wildcard *.c)) 
+	$(CC) $(CFLAGS) $^ -o $(OUTPUT_FILE)
+
+clean:
+	rm -f $(TARGET_BIN) *.o $(OUTPUT_FILE)
